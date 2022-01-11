@@ -1,0 +1,10 @@
+#!/bin/bash
+
+FC=gf11
+CC=gcc11
+
+$CC -c gettscal.c
+$CC -c timec.c
+$FC -c TimerMod.f
+$FC -o timing_example timing_example.f *.o
+
