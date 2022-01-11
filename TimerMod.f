@@ -27,9 +27,10 @@ C------------------------------------------------------------
       tsecs(:)=0.
       call system('mkdir -p '//trim(outdir)//'/timing' )
       OPEN(UNIT=lun, FILE=trim(outdir)//"/timing/time.txt"
-     2,STATUS='NEW')
+     2,STATUS='UNKNOWN')
 
       call gettscal(tinsec)
+
       end subroutine TInit
 C------------------------------------------------------------
       subroutine TClear
@@ -68,7 +69,7 @@ C     end of timing
       write(procnames(nprocs),'(A)')trim(procname)
       tsecs(nprocs)=tsecs(nprocs)+(t2-t1)/tinsec
       else
-      do jj =1 , nprocs
+      do jj =1, nprocs
       if(trim(procnames(jj))==trim(procname))then
       tsecs(jj)=tsecs(jj)+(t2-t1)/tinsec
       exit

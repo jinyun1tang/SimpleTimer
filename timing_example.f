@@ -19,20 +19,20 @@
       nstep=nstep+1
 
       call TStart(t1)
-      do jj =1, 10000
+      do jj =1, 100000
       f=sqrt(dble(jj))
       enddo
       call TStop('sqrt',t1)
 
       call TStart(t1)
-      do jj =1, 10000
-      f=sin(dble(jj))
+      do jj =1, 100000
+      f=sin(dble(jj))+cos(dble(jj))
       enddo
-      call TStop('sin',t1)
+      call TStop('sincos',t1)
 
       call TStart(t1)
-      do jj =1, 10000
-      f=exp(dble(jj))
+      do jj =1, 100000
+      f=exp(dble(jj)/100000.)
       enddo
       call TStop('exp',t1)
 
